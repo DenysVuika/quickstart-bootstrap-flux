@@ -1,3 +1,5 @@
+var path = require('path');
+
 module.exports = function(grunt) {
 
   // Load Grunt tasks declared in the package.json file
@@ -58,7 +60,8 @@ module.exports = function(grunt) {
           // Change this to '0.0.0.0' to access the server from outside
           hostname: 'localhost',
           bases: ['www'],
-          livereload: true
+          livereload: true,
+          server: path.resolve('./server.js')
         }
       }
     },
