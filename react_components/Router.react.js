@@ -2,9 +2,9 @@ var React = require('react');
 var page = require('page');
 
 var HomePage = require('./pages/Homepage.react'),
-    DebugPage = require('./pages/DebugPage.react'),
     AboutPage = require('./pages/AboutPage.react'),
     ContactPage = require('./pages/ContactPage.react'),
+    UsersPage = require('./pages/UsersPage.react'),
     ChatPage = require('./pages/ChatPage.react'),
     PageNotFound = require('./pages/PageNotFound.react');
 
@@ -26,6 +26,10 @@ var Router = React.createClass({
 
     page('/contact', function (ctx) {
       this.setState({component: <ContactPage />});
+    }.bind(this));
+
+    page('/users', function (ctx) {
+      this.setState({component: <UsersPage />});
     }.bind(this));
 
     page('/chat', function (ctx) {

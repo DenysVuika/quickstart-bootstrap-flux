@@ -1,5 +1,5 @@
-var React = require('react');
-var NavBarLink = require('./NavBarLink.react');
+var React = require('react'),
+    NavBarLink = require('./NavBarLink.react');
 
 var NavBar = React.createClass({
 
@@ -22,7 +22,8 @@ var NavBar = React.createClass({
               <NavBarLink route="/" text="Home"/>
               <NavBarLink route="/about" text="About"/>
               <NavBarLink route="/contact" text="Contact"/>
-                <NavBarLink route="/chat" text="Chat"/>
+              <NavBarLink route="/users" text="Users"/>
+              <NavBarLink route="/chat" text="Chat"/>
               <li className="dropdown">
                 <a href="#" className="dropdown-toggle" data-toggle="dropdown">
                   Dropdown <span className="caret"></span>
