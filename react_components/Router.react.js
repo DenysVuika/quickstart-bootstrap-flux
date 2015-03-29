@@ -1,13 +1,6 @@
 var React = require('react');
 var page = require('page');
 
-var HomePage = require('./pages/Homepage.react'),
-    AboutPage = require('./pages/AboutPage.react'),
-    ContactPage = require('./pages/ContactPage.react'),
-    UsersPage = require('./pages/UsersPage.react'),
-    ChatPage = require('./pages/ChatPage.react'),
-    PageNotFound = require('./pages/PageNotFound.react');
-
 var Router = React.createClass({
   getInitialState: function() {
     return {
@@ -16,36 +9,19 @@ var Router = React.createClass({
   },
   componentDidMount: function() {
 
-    page('/', function (ctx) {
-      this.setState({component: <HomePage />});
-    }.bind(this));
+    var self = this;
 
-    page('/about', function (ctx) {
-      this.setState({component: <AboutPage />});
-    }.bind(this));
+    this.props.routes.forEach(function (route) {
+      var url = route[0];
+      var View = route[1];
 
-    page('/contact', function (ctx) {
-      this.setState({component: <ContactPage />});
-    }.bind(this));
+      page(url, function (ctx) {
+        self.setState({
+          component: <View params={ctx.params} querystring={ctx.querystring}/>
+        });
+      });
 
-    page('/users', function (ctx) {
-      this.setState({component: <UsersPage />});
-    }.bind(this));
-
-    page('/chat', function (ctx) {
-      this.setState({component: <ChatPage />});
-    }.bind(this));
-
-    /*
-    // Component then may cantain route variables via this.props.params.*
-    page('/users/:id', function (ctx) {
-      this.setState({component: <Page2 params={ctx.params} />});
-    }.bind(this));
-    */
-
-    page('*', function (ctx) {
-      this.setState({component: <PageNotFound />});
-    }.bind(this));
+    });
 
     page.start();
   },

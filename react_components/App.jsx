@@ -1,13 +1,16 @@
 /** @jsx React.DOM */
 
-var React   = require('react');
-var NavBar  = require('./core/NavBar.react');
-var MainContent = require('./core/MainContent.react');
+var React = require('react'),
+    Router = require('./Router.react'),
+    routes = require('./routes'),
+    NavBar = require('./core/NavBar.react');
 
 React.render(
   <div>
     <NavBar />
-    <MainContent />,
+    <div className="container-fluid">
+      <Router routes={routes} />
+    </div>
   </div>,
   document.body
 );
