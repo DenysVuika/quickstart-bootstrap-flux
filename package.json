@@ -11,7 +11,8 @@
     "keymirror": "^0.1.1",
     "object-assign": "^2.0.0",
     "page": "^1.6.1",
-    "react": "^0.13.1"
+    "react": "^0.13.2",
+    "react-bootstrap": "^0.21.0"
   },
   "devDependencies": {
     "browserify": "^9.0.3",
